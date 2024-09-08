@@ -76,16 +76,16 @@ def check_win(UserInput, AIinput):
        (UserInput == 2 and AIinput == 1):
         lose += 1
         rounds += 1
-        print("\033[1;31;5m输！\033[0m败局：{}；胜局：{}；胜率：{}%".format(
-            lose, win, round(win/rounds*100, 3)))
+        print(
+            f"\033[1;31;5m输！\033[0m败局：{lose}；胜局：{win}；胜率：{round(win/rounds*100, 3)}%")
         print("-----------------------------------------------")
         return
 
     # 否则用户赢
     win += 1
     rounds += 1
-    print("\033[1;32;5m赢\033[0m。胜局：{}；败局：{}；胜率：{}%".format(
-        win, lose, round(win/rounds*100, 3)))
+    print(
+        f"\033[1;32;5m赢\033[0m。胜局：{win}；败局：{lose}；胜率：{round(win/rounds*100, 3)}%")
     print("-----------------------------------------------")
     return
 
