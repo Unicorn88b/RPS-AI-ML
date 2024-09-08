@@ -2,6 +2,7 @@ print("猜拳游戏，填汝欲出者，譬如：石头。欲退则曰：退出"
 print("-----------------------------------------------")
 win = 0
 lose = 0
+rounds = 0
 list = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]  # 分别为石头、剪刀、布
 FirstInput = int()
 SecondInput = ""
@@ -58,9 +59,14 @@ def check_win(UserInput, AIinput):
 
     print("AI出：{}".format(convert_number_to_rps(AIinput)))
 
+    global lose
+    global win
+    global rounds
+
     # 判定平局
     if UserInput == AIinput:
         print("平局")
+        rounds += 1
         print("-----------------------------------------------")
         return
 
@@ -68,16 +74,18 @@ def check_win(UserInput, AIinput):
     if (UserInput == 0 and AIinput == 2) or \
        (UserInput == 1 and AIinput == 0) or \
        (UserInput == 2 and AIinput == 1):
-        global lose
         lose += 1
-        print("\033[1;31;5m输！\033[0m败局：", lose)
+        rounds += 1
+        print("\033[1;31;5m输！\033[0m败局：{}；胜局：{}；胜率：{}%".format(
+            lose, win, round(win/rounds*100, 3)))
         print("-----------------------------------------------")
         return
 
     # 否则用户赢
-    global win
     win += 1
-    print("\033[1;32;5m赢\033[0m。胜局：", win)
+    rounds += 1
+    print("\033[1;32;5m赢\033[0m。胜局：{}；败局：{}；胜率：{}%".format(
+        win, lose, round(win/rounds*100, 3)))
     print("-----------------------------------------------")
     return
 
