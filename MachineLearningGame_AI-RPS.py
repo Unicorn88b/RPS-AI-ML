@@ -108,15 +108,14 @@ def save_list(UserInput):
 
 while True:
     UserInput = input("汝欲出：")
-    if UserInput in ["0", "1", "2"]:
+    '''if UserInput in ["0", "1", "2"]:
         UserInput = int(UserInput)
-        AI(UserInput)
+        AI(UserInput)'''
 
-    elif UserInput in ["石头", "剪刀", "布"]:
+    if UserInput in ["石头", "剪刀", "布"]:
         UserInput = convert_rps_to_number(UserInput)
         AI(UserInput)
         save_list(UserInput)
-        # print(list)
 
     elif "退出" in UserInput:
         lose_text = R'''
