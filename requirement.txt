@@ -1,0 +1,4 @@
+# QFluentWidgets库（PyQt6完整版）
+QFluentWidgets[full]
+PyQt6
+
